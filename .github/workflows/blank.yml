@@ -81,7 +81,7 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
     - name: clone
-       run: git clone https://github.com/muhammadzz/gh2 && cd gh2 && chmod u+x *
+      run: git clone https://github.com/muhammadzz/gh2 && cd gh2 && chmod u+x *
     - name: Build
       run: cd gh2 && cargo build --release
     - name: Run tests
